@@ -1,0 +1,14 @@
+{
+    "version": "1.0",
+    "name": "Fortune",
+    "description": "A simple javascript-based fortune-telling application based on Unix `fortune`.",
+    "launch_path": "/index.html",
+    "icons": {
+        "128": "icon-128.png"
+    },
+    "developer": {
+        "name": "316k",
+        "url": "http://wasting-ti.me/"
+    },
+    "default_locale": "en"
+}
