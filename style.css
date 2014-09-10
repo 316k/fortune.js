@@ -33,6 +33,8 @@ pre {
 #files select {
     width: 100%;
     height: 85%;
+    background-image: none;
+    border-radius: 0;
 }
 #files button {
     width: 50%;
