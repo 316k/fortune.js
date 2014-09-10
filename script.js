@@ -9,8 +9,6 @@ $(function() {
     refresh_wrap();
     fill_files();
 
-    $('#fortune').text(fortune.next());
-
     $('#toggle-lights').click(function() {
         var backgroundColor = (localStorage.getItem('backgroundColor') || 'white') == 'white' ? 'black' : 'white';
         var color = (localStorage.getItem('color') || 'black') == 'black' ? 'lightgreen' : 'black';
@@ -43,7 +41,7 @@ $(function() {
         // Reset scroll on fortune change
         $('#fortune').get(0).scrollTop = 0;
         $('#fortune').get(0).scrollLeft = 0;
-        $('#fortune').text(fortune.next());
+        $('#fortune').text(fortune.next() + "\n\n");
     })
 });
 
@@ -81,6 +79,6 @@ function refresh_fortunes() {
     fortune.empty().append_files($('#files select').val());
 
     setTimeout(function() {
-        $('#fortune').text(fortune.next());
+        $('#fortune').text(fortune.next() + "\n\n");
     }, 100);
 }
