@@ -1,11 +1,15 @@
 function Fortune(files) {
     this.fortunes = [];
-    if(files) {
-        this.append_files(files);
-    }
+    this.append_files(files);
 }
 
 Fortune.prototype.append_files = function(files) {
+
+    if(!files) {
+        // Prevents from appending the current HTML document as a fortune...
+        return;
+    }
+
     files = files instanceof Array ? files : [files];
 
     for(var i in files) {
@@ -33,7 +37,9 @@ Fortune.prototype._append_file = function(file) {
 
             that.fortunes[index] += lines[i] + "\n";
         }
-    }, 'text');
+    }, 'text').fail(function() {
+        console.error('Invalid fortune file');
+    });
     return this;
 };
 
