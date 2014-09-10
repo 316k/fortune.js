@@ -16,11 +16,11 @@ pre {
 }
 #buttons button {
     display: block;
-    width: 33.333%;
+    width: 25%;
     height: 100%;
     float: left;
 }
-#buttons button:nth-child(3), #confirm-files {
+#buttons button:nth-child(2n), #confirm-files {
     border-right: 1px solid #555;
 }
 #files {
@@ -44,4 +44,7 @@ button {
     background-image: none;
     font-size: large;
     border-radius: 0;
+}
+select option:checked {
+    padding-left: 7%;
 }

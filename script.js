@@ -6,6 +6,7 @@ $(function() {
         setTimeout(refresh_fortunes, 100);
     }, 100);
     refresh_lights();
+    refresh_wrap();
     fill_files();
 
     $('#fortune').text(fortune.next());
@@ -16,6 +17,12 @@ $(function() {
         localStorage.setItem('backgroundColor', backgroundColor);
         localStorage.setItem('color', color);
         refresh_lights();
+    });
+
+    $('#toggle-wrap').click(function() {
+        var wrap = (localStorage.getItem('wrap') || 'pre') == 'pre' ? 'pre-wrap' : 'pre';
+        localStorage.setItem('wrap', wrap);
+        refresh_wrap();
     });
 
     $('#files').hide();
@@ -33,6 +40,9 @@ $(function() {
     });
 
     $('#more').click(function() {
+        // Reset scroll on fortune change
+        $('#fortune').get(0).scrollTop = 0;
+        $('#fortune').get(0).scrollLeft = 0;
         $('#fortune').text(fortune.next());
     })
 });
@@ -55,9 +65,15 @@ function fill_files() {
 }
 
 function refresh_lights() {
-    $('body, button').css({
+    $('body, button, select').css({
         backgroundColor: localStorage.getItem('backgroundColor') || 'white',
         color: localStorage.getItem('color') || 'black'
+    });
+}
+
+function refresh_wrap() {
+    $('#fortune').css({
+        "white-space": localStorage.getItem('wrap') || 'pre'
     });
 }
 
