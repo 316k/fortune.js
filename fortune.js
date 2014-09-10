@@ -37,6 +37,13 @@ Fortune.prototype._append_file = function(file) {
 
             that.fortunes[index] += lines[i] + "\n";
         }
+
+        console.log(that.fortunes[index]);
+        if(that.fortunes[index] == "\n") {
+            // Removes the last entry if it's empty (if the file ended with a %)
+            that.fortunes.pop();
+        }
+
     }, 'text').fail(function() {
         console.error('Invalid fortune file');
     });
