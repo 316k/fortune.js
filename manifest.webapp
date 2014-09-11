@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "name": "Fortune",
     "description": "A simple javascript-based fortune-telling application based on Unix `fortune`.",
     "launch_path": "/index.html",
